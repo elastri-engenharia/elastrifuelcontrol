@@ -1,0 +1,26 @@
+diff --git a/node_modules/native-base/src/core/NativeBaseProvider.tsx b/node_modules/native-base/src/core/NativeBaseProvider.tsx
+index 43b4bd1..db43365 100644
+--- a/node_modules/native-base/src/core/NativeBaseProvider.tsx
++++ b/node_modules/native-base/src/core/NativeBaseProvider.tsx
+@@ -4,9 +4,9 @@ import {
+   Metrics,
+   initialWindowMetrics as defaultInitialWindowMetrics,
+ } from 'react-native-safe-area-context';
+-import { SSRProvider } from '@react-native-aria/utils';
+ import { theme as defaultTheme, ITheme } from './../theme';
+ import type { IColorModeProviderProps } from './color-mode';
++import { SSRProvider } from '@react-native-aria/utils';
+ import HybridProvider from './hybrid-overlay/HybridProvider';
+ import { OverlayProvider } from '@react-native-aria/overlays';
+ import { ToastProvider, ToastRef } from '../components/composites/Toast';
+@@ -94,7 +94,9 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
+             <OverlayProvider isSSR>
+               <ToastProvider>
+                 <InitializeToastRef />
+-                <SSRProvider>{children}</SSRProvider>
++                {
++                  React.version >= '18' ? children : <SSRProvider>{children}</SSRProvider>
++                }
+               </ToastProvider>
+             </OverlayProvider>
+           </HybridProvider>
