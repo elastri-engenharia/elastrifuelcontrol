@@ -5,12 +5,13 @@ import { Box, Center, NativeBaseProvider } from "native-base";
 
 import { Loading } from "@components/Loading";
 import { loadFonts } from "@assets/fonts";
+import { THEME } from "./src/theme";
 
 export default function App() {
   const { fontsLoaded } = loadFonts();
 
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={THEME}>
       <StatusBar
         barStyle="dark-content"
         backgroundColor="transparent"
@@ -21,7 +22,7 @@ export default function App() {
         <Center flex={1}>
           <Box
             _text={{
-              fontFamily: "GeneralSans-Bold",
+              fontFamily: "body",
             }}
           >
             Hello world
