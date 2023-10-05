@@ -16,6 +16,7 @@ export const THEME = extendTheme({
   fonts: {
     heading: "GeneralSans-Bold",
     body: "GeneralSans-Regular",
+    mono: "GeneralSans-SemiBold",
   },
   fontSizes: {
     xs: 12,
