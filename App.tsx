@@ -1,8 +1,9 @@
 import React from "react";
+import { StatusBar } from "react-native";
 
 import { Box, Center, NativeBaseProvider } from "native-base";
 
-import { StatusBar, View } from "react-native";
+import { Loading } from "@components/Loading";
 import { loadFonts } from "@assets/fonts";
 
 export default function App() {
@@ -11,7 +12,7 @@ export default function App() {
   return (
     <NativeBaseProvider>
       <StatusBar
-        barStyle="light-content"
+        barStyle="dark-content"
         backgroundColor="transparent"
         translucent
       />
@@ -27,7 +28,7 @@ export default function App() {
           </Box>
         </Center>
       ) : (
-        <View />
+        <Loading />
       )}
     </NativeBaseProvider>
   );
